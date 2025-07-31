@@ -1,4 +1,4 @@
-# English_Sentence_Trainer
+# English_Sentence_Builder
 This application lets users memorize the correct English sentence order.
 
 英語学習アプリ「English Sentence Builder」
