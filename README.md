@@ -91,5 +91,7 @@ This app is built using Python and converted to an .exe file using PyInstaller.
 Windows Defender or other antivirus software may show a security warning, but rest assured — this file is not a virus or malware.
 It is completely safe to use.
 
+You are welcome to fork this project and modify it for learning purposes.
+
 
 
