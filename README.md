@@ -37,6 +37,18 @@ English Sentence Builder は、英単語を正しい語順に並べて文章を�
 Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
 安心してお使いください。
 
+## デモ・解説動画
+このアプリを作った理由と、英語学習での使い方について
+YouTube で簡単に紹介しています。
+▶️ YouTube: https://www.youtube.com/watch?v=UJw1ORiUwck&t=83s
+
+
+## Demo / Explanation Video
+
+I explain why I made this app and how I use it for English learning
+in this short YouTube video:
+
+▶️ YouTube: https://www.youtube.com/watch?v=UJw1ORiUwck&t=83s
 
 English Learning App: English Sentence Builder
 
