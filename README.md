@@ -40,7 +40,7 @@ Windows Defender などのセキュリティ警告が表示される場合があ
 ## デモ・解説動画
 このアプリを作った理由と、英語学習での使い方について
 YouTube で簡単に紹介しています。
-▶️ YouTube: https://www.youtube.com/watch?v=UJw1ORiUwck&t=83s
+▶️ YouTube: https://www.youtube.com/watch?v=pZBEp4x0L34
 
 
 ## Demo / Explanation Video
@@ -48,7 +48,7 @@ YouTube で簡単に紹介しています。
 I explain why I made this app and how I use it for English learning
 in this short YouTube video:
 
-▶️ YouTube: https://www.youtube.com/watch?v=UJw1ORiUwck&t=83s
+▶️ YouTube: https://www.youtube.com/watch?v=pZBEp4x0L34
 
 English Learning App: English Sentence Builder
 
