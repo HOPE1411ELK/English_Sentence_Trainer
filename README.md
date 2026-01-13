@@ -32,6 +32,8 @@ English Sentence Builder は、英単語を正しい語順に並べて文章を�
 正解率とアベレージタイムが表示されます。正解率は何問中、何問正解だったかを表示
 アベレージタイムは平均一問につきどれほどの秒数が掛かったかを測定します
 
+音楽: 魔王魂
+
 🔹 実行ファイルについて
 本アプリは Python で開発され、PyInstaller を使って .exe に変換しています。
 Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
@@ -85,6 +87,8 @@ Your accuracy rate and average time per question are displayed:
 Accuracy shows how many correct answers out of the total
 
 Average time measures how many seconds you took on average per sentence
+
+Music: MaouDamashii
 
 🔹 About the Executable File
 This app is built using Python and converted to an .exe file using PyInstaller.
