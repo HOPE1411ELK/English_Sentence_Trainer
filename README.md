@@ -36,6 +36,7 @@ English Sentence Builder は、英単語を正しい語順に並べて文章を�
 
 
 リポジトリ音楽: HOPE1411ELK
+
 実行ファイル音楽: 魔王魂
 
 🔹 実行ファイルについて
@@ -93,7 +94,9 @@ Accuracy shows how many correct answers out of the total
 
 Average time measures how many seconds you took on average per sentence
 
+
 Repository Music: HOPE1411ELK
+
 Executable File Music: MaouDamashii
 
 🔹 About the Executable File
