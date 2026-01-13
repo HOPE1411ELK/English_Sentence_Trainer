@@ -1,9 +1,11 @@
 # English_Sentence_Builder
 This application lets users memorize the correct English sentence order.
+Game starts immediately with sound and sentences included
 
 英語学習アプリ「English Sentence Builder」
 English Sentence Builder は、英単語を正しい語順に並べて文章を作るゲーム感覚の英語学習アプリです。
 スクランブルされた単語を正しい順番にクリックして並べ替えて、英文を完成させましょう。
+クローン後、追加設定なしですぐにゲームを遊べます（音源・例文をリポジトリに格納）
 
 🔹 特徴
 英語の語順感覚を楽しく身につけられます
@@ -56,6 +58,7 @@ English Learning App: English Sentence Builder
 
 English Sentence Builder is a fun, game-like English learning app where you build correct English sentences by arranging scrambled words in the proper order.
 Click the shuffled words in the correct sequence to complete the sentence!
+Game starts immediately with sound and sentences included.
 
 🔹 Features
 Learn English word order intuitively through interactive play
