@@ -40,8 +40,8 @@ def _load_wav(path, vol=0.5):
 
 startsound    = _load_wav(resource_path("startsound.wav"), 0.9)
 correctsound  = _load_wav(resource_path("correctsound.wav"), 0.9)
-wrongsound    = _load_wav(resource_path("wrongsound.wav"), 0.9)
-giveupsound   = _load_wav(resource_path("giveupsound.wav"), 0.9)
+wrongsound    = _load_wav(resource_path("giveupsound.wav"), 0.9)
+giveupsound   = _load_wav(resource_path("wrongsound.wav"), 0.9)
 gameoversound = _load_wav(resource_path("gameoversound.wav"), 0.9)
 gameendsound  = _load_wav(resource_path("gameendsound.wav"), 0.9)
 shufflesound  = _load_wav(resource_path("shufflesound.wav"), 0.9)
@@ -245,7 +245,7 @@ class ESBApp(ctk.CTk):
                     return
             track = random.choice(bgm_files)
             pygame.mixer.music.load(track)
-            pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.set_volume(0.5)
             pygame.mixer.music.play(-1)
         except pygame.error as e:
             print(f"[BGM] play error: {e}")
@@ -1087,3 +1087,4 @@ class ESBApp(ctk.CTk):
 if __name__ == "__main__":
 
     ESBApp().mainloop()
+
