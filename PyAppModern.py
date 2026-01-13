@@ -38,20 +38,20 @@ def _load_wav(path, vol=0.5):
         return _Dummy()
 
 
-startsound    = _load_wav(resource_path("startsound.wav"), 0.5)
-correctsound  = _load_wav(resource_path("correctsound.wav"), 0.5)
-wrongsound    = _load_wav(resource_path("wrongsound.wav"), 0.5)
-giveupsound   = _load_wav(resource_path("giveupsound.wav"), 0.5)
-gameoversound = _load_wav(resource_path("gameoversound.wav"), 0.3)
-gameendsound  = _load_wav(resource_path("gameendsound.wav"), 0.5)
-shufflesound  = _load_wav(resource_path("shufflesound.wav"), 0.5)
+startsound    = _load_wav(resource_path("startsound.wav"), 0.9)
+correctsound  = _load_wav(resource_path("correctsound.wav"), 0.9)
+wrongsound    = _load_wav(resource_path("wrongsound.wav"), 0.9)
+giveupsound   = _load_wav(resource_path("giveupsound.wav"), 0.9)
+gameoversound = _load_wav(resource_path("gameoversound.wav"), 0.9)
+gameendsound  = _load_wav(resource_path("gameendsound.wav"), 0.9)
+shufflesound  = _load_wav(resource_path("shufflesound.wav"), 0.9)
 
 # --- BGM 候補（曲のロードは再生時に行う） ---
 bgm_candidates = [
     resource_path("battlebgm1.mp3"),
-    resource_path("battlebgm2.mp3"),
-    resource_path("battlebgm3.mp3"),
-    resource_path("battlebgm4.mp3"),
+    resource_path("battlebgm1.mp3"),
+    resource_path("battlebgm1.mp3"),
+    resource_path("battlebgm1.mp3"),
 ]
 bgm_files = [p for p in bgm_candidates if os.path.exists(p)]
 if not bgm_files:
@@ -245,7 +245,7 @@ class ESBApp(ctk.CTk):
                     return
             track = random.choice(bgm_files)
             pygame.mixer.music.load(track)
-            pygame.mixer.music.set_volume(0.07)
+            pygame.mixer.music.set_volume(0.2)
             pygame.mixer.music.play(-1)
         except pygame.error as e:
             print(f"[BGM] play error: {e}")
@@ -1085,4 +1085,5 @@ class ESBApp(ctk.CTk):
         self.destroy()
 
 if __name__ == "__main__":
+
     ESBApp().mainloop()
