@@ -115,5 +115,9 @@ Fork & PR welcome!
 
 You are welcome to fork this project and modify it for learning purposes.
 
+This project is developed by a non-native English learner.
+Feedback, bug reports, and improvement suggestions are very welcome.
+
+If you find this app useful for your English learning, I’d really appreciate a ⭐.
 
 
