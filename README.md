@@ -44,6 +44,8 @@ English Sentence Builder は、英単語を正しい語順に並べて文章を�
 Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
 安心してお使いください。
 
+特記　２０２６年１月１４日　オリジナル音源とセンテンステキストをリポジトリに追加しました。
+
 フォークまたはプルリクエスト歓迎します。
 
 ## デモ・解説動画
@@ -63,6 +65,8 @@ English Learning App: English Sentence Builder
 
 English Sentence Builder is a fun, game-like English learning app where you build correct English sentences by arranging scrambled words in the proper order.
 Click the shuffled words in the correct sequence to complete the sentence!
+
+Note (Jan 14, 2026): Original sound assets and sentence text have been added, allowing the game to be played immediately after cloning.
 Game starts immediately with sound and sentences included.
 
 🔹 Features
