@@ -1,57 +1,19 @@
 # English_Sentence_Builder
 This application lets users memorize the correct English sentence order.
-Game starts immediately with sound and sentences included
+Game starts immediately with sound and sentences included.
 
-英語学習アプリ「English Sentence Builder」
-English Sentence Builder は、英単語を正しい語順に並べて文章を作るゲーム感覚の英語学習アプリです。
-スクランブルされた単語を正しい順番にクリックして並べ替えて、英文を完成させましょう。
-クローン後、追加設定なしですぐにゲームを遊べます（音源・例文をリポジトリに格納）
+## Requirements
+Before running this app, make sure you have:
 
-🔹 特徴
-英語の語順感覚を楽しく身につけられます
+- Python 3.13 or later
+- pygame 2.6.1 or later
 
-正解・不正解に応じて音が鳴るので、リズム感覚で学べます
+You can check your Python version with:
 
-🔹 こんな人におすすめ
-英語の文法に苦手意識がある人
-
-単語の知識はあるけど、文章が作れないと感じる人。主に英語初級、中級者向け
-
-楽しく反復練習したい人
-
-🔹 使い方
-アプリを起動すると、単語がバラバラに表示されます
-
-単語を並べ替えて正しい英文を作成
-
-正解すれば効果音と共に次の問題へ進みます
-
-クエスチョンモードを選べばニューゲームボタンをクリックしたときに
-以前と同じ問題順序か、それとも全く違う問題が出題されるかを選択することができます
-
-タイマーは１５分間に設定しています。長くもなく短くもなく集中力が維持できるベストな時間だと思います
-
-正解率とアベレージタイムが表示されます。正解率は何問中、何問正解だったかを表示
-アベレージタイムは平均一問につきどれほどの秒数が掛かったかを測定します
+```bash
+python --version
 
 
-リポジトリ音楽: HOPE1411ELK
-
-実行ファイル音楽: 魔王魂
-
-🔹 実行ファイルについて
-本アプリは Python で開発され、PyInstaller を使って .exe に変換しています。
-Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
-安心してお使いください。
-
-特記　２０２６年１月１４日　オリジナル音源とセンテンステキストをリポジトリに追加しました。
-
-フォークまたはプルリクエスト歓迎します。
-
-## デモ・解説動画
-このアプリを作った理由と、英語学習での使い方について
-YouTube で簡単に紹介しています。
-▶️ YouTube: https://www.youtube.com/watch?v=pZBEp4x0L34
 
 
 ## Demo / Explanation Video
@@ -119,5 +81,61 @@ This project is developed by a non-native English learner.
 Feedback, bug reports, and improvement suggestions are very welcome.
 
 If you find this app useful for your English learning, I’d really appreciate a ⭐.
+
+
+
+英語学習アプリ「English Sentence Builder」
+English Sentence Builder は、英単語を正しい語順に並べて文章を作るゲーム感覚の英語学習アプリです。
+スクランブルされた単語を正しい順番にクリックして並べ替えて、英文を完成させましょう。
+クローン後、追加設定なしですぐにゲームを遊べます（音源・例文をリポジトリに格納）
+
+🔹 特徴
+英語の語順感覚を楽しく身につけられます
+
+正解・不正解に応じて音が鳴るので、リズム感覚で学べます
+
+🔹 こんな人におすすめ
+英語の文法に苦手意識がある人
+
+単語の知識はあるけど、文章が作れないと感じる人。主に英語初級、中級者向け
+
+楽しく反復練習したい人
+
+🔹 使い方
+アプリを起動すると、単語がバラバラに表示されます
+
+単語を並べ替えて正しい英文を作成
+
+正解すれば効果音と共に次の問題へ進みます
+
+クエスチョンモードを選べばニューゲームボタンをクリックしたときに
+以前と同じ問題順序か、それとも全く違う問題が出題されるかを選択することができます
+
+タイマーは１５分間に設定しています。長くもなく短くもなく集中力が維持できるベストな時間だと思います
+
+正解率とアベレージタイムが表示されます。正解率は何問中、何問正解だったかを表示
+アベレージタイムは平均一問につきどれほどの秒数が掛かったかを測定します
+
+
+リポジトリ音楽: HOPE1411ELK
+
+実行ファイル音楽: 魔王魂
+
+🔹 実行ファイルについて
+本アプリは Python で開発され、PyInstaller を使って .exe に変換しています。
+Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
+安心してお使いください。
+
+特記　２０２６年１月１４日　オリジナル音源とセンテンステキストをリポジトリに追加しました。
+
+フォークまたはプルリクエスト歓迎します。
+
+## デモ・解説動画
+このアプリを作った理由と、英語学習での使い方について
+YouTube で簡単に紹介しています。
+▶️ YouTube: https://www.youtube.com/watch?v=pZBEp4x0L34
+
+
+
 
 
