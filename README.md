@@ -44,6 +44,8 @@ English Sentence Builder は、英単語を正しい語順に並べて文章を�
 Windows Defender などのセキュリティ警告が表示される場合がありますが、ウイルスやマルウェアではありません。
 安心してお使いください。
 
+フォークまたはプルリクエスト歓迎します。
+
 ## デモ・解説動画
 このアプリを作った理由と、英語学習での使い方について
 YouTube で簡単に紹介しています。
@@ -103,6 +105,9 @@ Executable File Music: MaouDamashii
 This app is built using Python and converted to an .exe file using PyInstaller.
 Windows Defender or other antivirus software may show a security warning, but rest assured — this file is not a virus or malware.
 It is completely safe to use.
+
+Fork & PR welcome!
+(Small improvements, bug fixes are welcome)
 
 You are welcome to fork this project and modify it for learning purposes.
 
