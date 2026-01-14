@@ -251,7 +251,7 @@ class ESBApp(ctk.CTk):
                     return
             track = random.choice(bgm_files)
             pygame.mixer.music.load(track)
-            pygame.mixer.music.set_volume(0.07)
+            pygame.mixer.music.set_volume(0.8)
             pygame.mixer.music.play(-1)
         except pygame.error as e:
             print(f"[BGM] play error: {e}")
@@ -1164,5 +1164,6 @@ class ESBApp(ctk.CTk):
 
 if __name__ == "__main__":
     ESBApp().mainloop()
+
 
 
