@@ -5,7 +5,7 @@ Game starts immediately with sound and sentences included.
 ## Requirements
 Before running this app, make sure you have:
 
-- Python 3.13 or later
+- Python 3.10 or later
 - pygame 2.6.1 or later
 
 You can check your Python version with:
@@ -88,6 +88,11 @@ If you find this app useful for your English learning, I’d really appreciate a
 English Sentence Builder は、英単語を正しい語順に並べて文章を作るゲーム感覚の英語学習アプリです。
 スクランブルされた単語を正しい順番にクリックして並べ替えて、英文を完成させましょう。
 クローン後、追加設定なしですぐにゲームを遊べます（音源・例文をリポジトリに格納）
+
+## ファイル実行に求められる環境
+- Python 3.10  以降
+- pygame 2.6.1 以降
+
 
 🔹 特徴
 英語の語順感覚を楽しく身につけられます
