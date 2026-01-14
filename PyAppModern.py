@@ -138,7 +138,7 @@ class ESBApp(ctk.CTk):
         self.font_avg       = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # AVG/正答率（大）
         self.font_score     = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # SCORE（大）
         self.font_count     = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # COUNT（大）
-        self.font_button    = ctk.CTkFont(family="Segoe UI",     size=sz(18), weight="bold")
+        self.font_button    = ctk.CTkFont(family="Segoe UI",     size=sz(19), weight="bold")
         self.font_section   = ctk.CTkFont(family="Yu Gothic UI", size=sz(16), weight="bold")
         self.font_hint      = ctk.CTkFont(family="Segoe UI",     size=sz(16))
 
@@ -1164,5 +1164,6 @@ class ESBApp(ctk.CTk):
 
 if __name__ == "__main__":
     ESBApp().mainloop()
+
 
 
