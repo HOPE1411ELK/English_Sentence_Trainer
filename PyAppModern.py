@@ -16,7 +16,11 @@ def resource_path(relative_path: str) -> str:
     return os.path.join(base_path, relative_path)
 
 def norm(s: str) -> str:
-    return s.replace("’", "'").replace("‘", "'").replace("`", "'").strip()
+    s = s.replace("’", "'").replace("‘", "'").replace("`", "'")
+    s = s.replace(".", "")
+    s = " ".join(s.split())
+    return s.strip().lower()
+
 
 # -------------------- sounds --------------------
 try:
@@ -38,13 +42,13 @@ def _load_wav(path, vol=0.5):
         return _Dummy()
 
 
-startsound    = _load_wav(resource_path("startsound.wav"), 0.9)
-correctsound  = _load_wav(resource_path("correctsound.wav"), 0.9)
-wrongsound    = _load_wav(resource_path("giveupsound.wav"), 0.9)
-giveupsound   = _load_wav(resource_path("wrongsound.wav"), 0.9)
-gameoversound = _load_wav(resource_path("gameoversound.wav"), 0.9)
-gameendsound  = _load_wav(resource_path("gameendsound.wav"), 0.9)
-shufflesound  = _load_wav(resource_path("shufflesound.wav"), 0.9)
+startsound    = _load_wav(resource_path("startsound.wav"), 0.8)
+correctsound  = _load_wav(resource_path("correctsound.wav"), 0.8)
+wrongsound    = _load_wav(resource_path("wrongsound.wav"), 0.8)
+giveupsound   = _load_wav(resource_path("giveupsound.wav"), 0.8)
+gameoversound = _load_wav(resource_path("gameoversound.wav"), 0.8)
+gameendsound  = _load_wav(resource_path("gameendsound.wav"), 0.8)
+shufflesound  = _load_wav(resource_path("shufflesound.wav"), 0.8)
 
 # --- BGM 候補（曲のロードは再生時に行う） ---
 bgm_candidates = [
@@ -82,9 +86,9 @@ if not SENTENCES:
 # 難易度のデフォルト閾値（実装仕様）
 EASY_MAX = 5       # <= 6 語 → easy
 BEGINNER_MAX = 8       # <= 8 語 → Beginner
-HIGH_BEGINNER_MIN = 8       # <= 10 語 → High_Beginner
+HIGH_BEGINNER_MIN = 8       # >= 10 語 → High_Beginner
 HIGH_BEGINNER_MAX = 10       # <= 10 語 → High_Beginner
-INTERMEDIATE_MIN = 10  # <= 10 語 → Intermediate
+INTERMEDIATE_MIN = 10  # >= 10 語 → Intermediate
 INTERMEDIATE_MAX = 14  # <= 14 語 → Intermediate
 ADVANCED_MIN = 14          # >= 14 語 → Advanced
 
@@ -109,7 +113,7 @@ class ESBApp(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("ENGLISH SENTENCE BUILDER")
-        self.geometry("1150x760")
+        self.geometry("1150x820")
 
         # ① Tkが初期化された後 ← ここが重要
         self.challenge_mode = tk.IntVar(value=0)
@@ -130,9 +134,9 @@ class ESBApp(ctk.CTk):
         self.font_q_small   = ctk.CTkFont(family="Segoe UI",     size=sz(18))
         self.font_result    = ctk.CTkFont(family="Segoe UI",     size=sz(28), weight="bold")  # 回答欄（大）
         self.font_status    = ctk.CTkFont(family="Segoe UI",     size=sz(18), weight="bold")  # メッセージ
-        self.font_correct   = ctk.CTkFont(family="Segoe UI",     size=sz(24))                 # 正解文（大）
+        self.font_correct   = ctk.CTkFont(family="Segoe UI",     size=sz(20))                 # 正解文（大）
         self.font_avg       = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # AVG/正答率（大）
-        self.font_score     = ctk.CTkFont(family="Segoe UI",     size=sz(22), weight="bold")  # SCORE（大）
+        self.font_score     = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # SCORE（大）
         self.font_count     = ctk.CTkFont(family="Segoe UI",     size=sz(20), weight="bold")  # COUNT（大）
         self.font_button    = ctk.CTkFont(family="Segoe UI",     size=sz(18), weight="bold")
         self.font_section   = ctk.CTkFont(family="Yu Gothic UI", size=sz(16), weight="bold")
@@ -156,6 +160,8 @@ class ESBApp(ctk.CTk):
         self.timer_job = None
         self.game_has_ended = False
         self.game_start_time = time.time()
+
+        self.show_period = tk.IntVar(value=1)  # 1=表示, 0=非表示
 
         # strike（ミス×3 or GIVE UP）合算。5で終了
         self.strike_count = 0
@@ -245,7 +251,7 @@ class ESBApp(ctk.CTk):
                     return
             track = random.choice(bgm_files)
             pygame.mixer.music.load(track)
-            pygame.mixer.music.set_volume(0.5)
+            pygame.mixer.music.set_volume(0.07)
             pygame.mixer.music.play(-1)
         except pygame.error as e:
             print(f"[BGM] play error: {e}")
@@ -384,13 +390,22 @@ class ESBApp(ctk.CTk):
         left.pack(side="left", fill="both", expand=True, padx=(0, PAD))
 
         self.question_label = ctk.CTkLabel(
-            left, text="MAKE THE CORRECT SENTENCES!", font=self.font_q_small, text_color="#2E2E2E"
+            left, text="MAKE CORRECT SENTENCES!", font=self.font_q_small, text_color="#2E2E2E"
         )
         self.question_label.pack(anchor="w", padx=18, pady=(0, 6))
 
+        
         self.result_label = ctk.CTkLabel(
-            left, text="HERE IS YOUR ANSWER", font=self.font_result, text_color="#2E2E2E"
+            left,
+            text="HERE IS YOUR CHALLENGE",
+            font=self.font_result,
+            text_color="#2E2E2E",
+            wraplength=740,     # ← 横幅(px)。ウィンドウ幅に合わせて調整
+            justify="left"       # left / center / right
         )
+
+
+
         self.result_label.pack(fill="x", padx=18, pady=(0, 8))
 
         # Word pool
@@ -490,6 +505,30 @@ class ESBApp(ctk.CTk):
 
 
 
+
+        ctk.CTkLabel(right, text="PERIOD(.)HINT", font=self.font_section).pack(anchor="w", padx=16, pady=(12, 4))
+
+        period_frame = ctk.CTkFrame(right, fg_color=CARD)
+        period_frame.pack(anchor="w", padx=12, pady=(0, 10))
+
+        ctk.CTkRadioButton(
+            period_frame,
+            text="SHOW",
+            variable=self.show_period,
+            value=1
+        ).pack(side="left", padx=8)
+
+        ctk.CTkRadioButton(
+            period_frame,
+            text="HIDE",
+            variable=self.show_period,
+            value=0
+        ).pack(side="left", padx=8)
+
+
+
+
+
         ctk.CTkLabel(right, text="QUESTION STYLE", font=self.font_section).pack(anchor="w", padx=16, pady=(16, 6))
         style_row = ctk.CTkFrame(right, fg_color=CARD)
         style_row.pack(anchor="w", padx=12, pady=(0, 10))
@@ -569,7 +608,19 @@ class ESBApp(ctk.CTk):
         self._update_result()
 
     def _update_result(self):
-        self.result_label.configure(text=" ".join(self.selected) if self.selected else "HERE IS YOUR CHALLENGE")
+        
+        if self.selected:
+            words_per_line = 9  # 1行に表示する単語数
+            lines = [
+            " ".join(self.selected[i:i+words_per_line])
+                for i in range(0, len(self.selected), words_per_line)
+            ]
+            text = "\n".join(lines)
+        else:
+            text = "HERE IS YOUR CHALLENGE"
+    
+        self.result_label.configure(text=text)
+
         pct = (self.correct_count / self.question_count * 100) if self.question_count else 0.0
         self.avg_time_label.configure(
             text=f"CORRECT: {self.correct_count}/{self.question_count} | AVG: {self._avg_time():.1f} sec | {pct:.0f}%"
@@ -656,34 +707,47 @@ class ESBApp(ctk.CTk):
 
 
 
+
+    def _apply_period_setting(self, sentence: str) -> str:
+        s = sentence.rstrip()
+
+        if self.show_period.get() == 0:
+            # 非表示：文末の . を除去
+            if s.endswith("."):
+               s = s[:-1]
+        else:
+            # 表示：なければ付ける
+            if not s.endswith("."):
+                s += ""
+
+        return s
+
+
+
     def check_answer(self):
 
-        user = " ".join(self.selected)
+        dur = 0.0  # ← 必須（UnboundLocalError防止）
 
+        user = " ".join(self.selected)
         answer = self._get_answer_for_check()
 
+        # ── 正解 ────────────────────────────────
         if norm(user) == norm(answer):
 
-        
-        # ── 正解 ────────────────────────────────
-
             solve_time = time.perf_counter() - self.round_start_time
+            dur = solve_time
 
-            
             count = self.get_sound_count(solve_time)
             self.play_correct_sound(count)
 
-
             self.correct_count += 1
             self.question_count += 1
-         
 
-            dur = solve_time
-            base = self._base_points_on_success(self.wrong_attempts)  # 既存
-            bonus = self._time_bonus(dur)                              # 既存
+            base = self._base_points_on_success(self.wrong_attempts)
+            bonus = self._time_bonus(dur)
 
-            wc = len(self.words)                                       # 語数
-            mult = self._length_multiplier(wc)                         # 倍率
+            wc = len(self.words)
+            mult = self._length_multiplier(wc)
 
             raw = base + bonus
             gained = int(round(raw * mult))
@@ -692,39 +756,38 @@ class ESBApp(ctk.CTk):
             self.score += gained
 
             self.message_label.configure(
-            text=f"+{gained} pts  (base {base}, time +{bonus}, len {wc} ×{mult:.2f}, {dur:.1f}s, wrong {self.wrong_attempts})",
-            text_color="#16A085"
-        )
-            self.correct_sentence_label.configure(text=f"CORRECT!  Solve Time: {solve_time:.2f} sec \n{self.sentence}")
+                text=f"+{gained} pts  (base {base}, time +{bonus}, "
+                     f"len {wc} ×{mult:.2f}, {dur:.1f}s, wrong {self.wrong_attempts})",
+                text_color="#16A085"
+            )
 
-            
-        
+            self.correct_sentence_label.configure(
+                text=f"CORRECT!  Solve Time: {solve_time:.2f} sec\n{self.sentence}"
+            )
 
-
-
-            if self.round_start_time:
-               self.solve_times.append(dur)
-
+            self.solve_times.append(dur)
             self.wrong_attempts = 0
             self._update_score_ui()
             self.reset_round()
-        else:
+
         # ── 不正解 ──────────────────────────────
+        else:
             self.wrong_attempts += 1
             wrongsound.play()
             self.correct_sentence_label.configure(text="")
 
             if self.wrong_attempts >= 3:
-               self._fail_current_round()
-               self.message_label.configure(text="")
-               giveupsound.play()
+                self._fail_current_round()
+                self.message_label.configure(text="")
+                giveupsound.play()
             else:
-               self.shuffle_words()
-               self.message_label.configure(
-                text=f"WRONG! TRY AGAIN ({self.wrong_attempts}/3)",
-                text_color="#C0392B"
-            )
-               
+                self.shuffle_words()
+                self.message_label.configure(
+                    text=f"WRONG! TRY AGAIN ({self.wrong_attempts}/3)",
+                    text_color="#C0392B"
+                )
+    
+    
             
 
     def give_up(self):
@@ -853,27 +916,42 @@ class ESBApp(ctk.CTk):
     
         
 
+    
+
     def _pick_sentence(self):
         if self.order_pos >= len(self.order):
             self.end_game()
             return
+
         idx = self.order[self.order_pos]
         self.order_pos += 1
+
         self.sentence = self.sentences[idx]
 
-    # 表示用だけを切り替える
-        if self.challenge_mode.get() == 1:
-            display_sentence = self._make_challenge_sentence(self.sentence)
-        else:
-            display_sentence = self.sentence
+        # ① まず表示用文を作る
+        display_sentence = self.sentence
 
+        # ② ピリオド設定を反映
+        display_sentence = self._apply_period_setting(display_sentence)
+
+        # ③ Challenge モードなら小文字化（表示用だけ）
+        if self.challenge_mode.get() == 1:
+            display_sentence = display_sentence.lower()
+
+        # ④ 分解
         self.words = display_sentence.split()
         self.shuffled = self.words[:]
         random.shuffle(self.shuffled)
-        self.question_label.configure(text="MAKE CORRECT SENTENCES!")
 
-        
+        self.question_label.configure(text="MAKE CORRECT SENTENCES!")
         self.round_start_time = time.perf_counter()
+
+
+
+
+
+
+
 
     def start_timer(self):
         """タイマー開始（New Game 時に呼ぶ）"""
@@ -1085,6 +1163,6 @@ class ESBApp(ctk.CTk):
         self.destroy()
 
 if __name__ == "__main__":
-
     ESBApp().mainloop()
+
 
