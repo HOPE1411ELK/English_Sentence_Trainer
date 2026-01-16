@@ -1,81 +1,98 @@
-# English_Sentence_Builder
-This application lets users memorize the correct English sentence order.
+# English Sentence Builder
+
+A lightweight desktop app for practicing English sentence structure  
+by rearranging words into correct sentences.  
+Designed for focused, distraction-free learning.
+
+---
+
+## Overview
+
+**English Sentence Builder** is an interactive English learning app where you build correct English sentences by arranging scrambled words in the proper order.
+
+Click the shuffled words in sequence to complete the sentence.  
+Sound feedback for correct and incorrect answers helps you develop a natural sense of English word order.
+
+---
+
+## Features
+
+- Practice English sentence order through interactive word arrangement  
+- Immediate sound feedback for correct and incorrect answers  
+- Simple, focused UI with no distractions  
+- Accuracy rate and average response time tracking  
+
+---
+
+## How to Play
+
+- When the app starts, scrambled words are displayed  
+- Click the words in the correct order to form a complete sentence  
+- If correct, a sound plays and the next sentence appears  
+- In **Question Mode**, clicking **New Game** will either:
+  - Restart questions in the same order, or  
+  - Shuffle them completely
+
+A **15-minute timer** is used per session to maintain focus without fatigue.
+
+After each session, the following stats are shown:
+- **Accuracy**: number of correct answers out of total questions  
+- **Average Time**: average seconds spent per sentence  
+
+---
 
 ## Requirements
-Before running this app, make sure you have:
 
-- Python 3.10 or later
-- pygame 2.6.1 or later
-- customtkinter 5.2.2 or later
+- Python 3.10 or later  
+- pygame 2.6.1 or later  
+- customtkinter 5.2.2 or later  
 
+---
 
 ## Demo / Explanation Video
 
-I explain why I made this app and how I use it for English learning
-in this short YouTube video:
+I explain why I made this app and how I use it for English learning in this short video:
 
-▶️ YouTube: https://www.youtube.com/watch?v=pZBEp4x0L34
+▶️ https://www.youtube.com/watch?v=pZBEp4x0L34
 
-English Learning App: English Sentence Builder
+---
 
-English Sentence Builder is a fun, game-like English learning app where you build correct English sentences by arranging scrambled words in the proper order.
-Click the shuffled words in the correct sequence to complete the sentence!
+## Notes
 
-Note (Jan 14, 2026): Original sound assets and sentence text have been added, allowing the game to be played immediately after cloning.
-Game starts immediately with sound and sentences included.
+**Jan 14, 2026**  
+Original sound assets and sentence text have been added.  
+The game works immediately after cloning.
 
-🔹 Features
-Learn English word order intuitively through interactive play
+---
 
-Enjoy immediate sound feedback for correct and incorrect answers, helping you develop a rhythm and learning pattern
+## Music Credits
 
-🔹 Recommended for:
-Learners who struggle with English grammar
+- Repository music: **HOPE1411ELK**  
+- Executable file music: **MaouDamashii**
 
-Those who know vocabulary but find it hard to form full sentences
+---
 
-Beginner to intermediate English learners
+## About the Executable File
 
-Anyone who enjoys fun, repetitive practice to build fluency
+This app is developed in Python and converted into an `.exe` file using **PyInstaller**.
 
-🔹 How to Play
-When the app starts, scrambled words are displayed
+Windows Defender or other antivirus software may display a security warning.  
+This is a common false positive.  
+**The file is safe and does not contain malware.**
 
-Rearrange the words by clicking them in the correct order to form a complete sentence
+---
 
-If correct, a sound effect plays and the next sentence appears
+## Contribution
 
-If you select Question Mode, clicking the “New Game” button will either restart the questions in the same order or shuffle them completely, depending on your preference
+Forks and pull requests are welcome.  
+Small improvements, bug fixes, and learning-focused enhancements are appreciated.
 
-A 15-minute timer is set for each session—an ideal duration to stay focused without fatigue
+This project is developed by a **non-native English learner**.  
+Feedback and suggestions are very welcome.
 
-Your accuracy rate and average time per question are displayed:
+If you find this app useful, I’d really appreciate a ⭐.
 
-Accuracy shows how many correct answers out of the total
-
-Average time measures how many seconds you took on average per sentence
-
-
-Repository Music: HOPE1411ELK
-
-Executable File Music: MaouDamashii
-
-🔹 About the Executable File
-This app is built using Python and converted to an .exe file using PyInstaller.
-Windows Defender or other antivirus software may show a security warning, but rest assured — this file is not a virus or malware.
-It is completely safe to use.
-
-Fork & PR welcome!
-(Small improvements, bug fixes are welcome)
-
-You are welcome to fork this project and modify it for learning purposes.
-
-This project is developed by a non-native English learner.
-Feedback, bug reports, and improvement suggestions are very welcome.
-
-If you find this app useful for your English learning, I’d really appreciate a ⭐.
-
-
+---
 
 英語学習アプリ「English Sentence Builder」
 English Sentence Builder は、英単語を正しい語順に並べて文章を作るゲーム感覚の英語学習アプリです。
